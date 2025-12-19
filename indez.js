@@ -204,3 +204,31 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 1500);
       });
     });
+window.addEventListener('scroll', function() {
+  rolando = true;
+});
+
+setInterval(function() {
+  if (rolando) {
+    verificarScroll();
+    rolando = false;
+  }
+}, 100);
+
+function verificarScroll() {
+  let posicaoAtual = window.pageYOffset || document.documentElement.scrollTop;
+
+  // Só aplica no celular (largura ≤ 768px)
+  if (window.innerWidth <= 768) {
+    if (posicaoAtual > ultimaPosicao && posicaoAtual > 100) {
+      // Rolando para baixo → esconde
+      document.querySelector('header').classList.add('hide-on-scroll-down');
+    } else if (posicaoAtual < ultimaPosicao) {
+      // Rolando para cima → mostra
+      document.querySelector('header').classList.remove('hide-on-scroll-down');
+    }
+  }
+
+  ultimaPosicao = posicaoAtual;
+}
+
