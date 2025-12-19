@@ -969,6 +969,29 @@ footer {
     padding: 16px;
   }
 }
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transition: transform 0.3s ease;  /* animação suave ao esconder/mostrar */
+  z-index: 1000;
+  background-color: #fff;  /* ajuste se precisar (ou a cor que você usa) */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);  /* opcional: sombra leve */
+}
+
+/* Classe que esconde o header */
+header.hide-on-scroll-down {
+  transform: translateY(-100%);
+}
+
+/* Aplica o efeito SOMENTE em telas pequenas (celular) */
+@media (max-width: 768px) {
+  header.hide-on-scroll-down {
+    transform: translateY(-100%);
+  }
+}
+
 
 
 
