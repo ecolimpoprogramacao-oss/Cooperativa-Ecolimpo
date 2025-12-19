@@ -204,6 +204,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 1500);
       });
     });
+let ultimaPosicao = 0;
+let rolando = false;
+
 window.addEventListener('scroll', function() {
   rolando = true;
 });
